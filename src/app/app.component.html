@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <div class="example-container" >
+      <mat-toolbar color="primary" class="example-toolbar">
+          <button mat-button (click)="snav.toggle()">
+              <mat-icon *ngIf="!snav.opened">menu</mat-icon>
+              <mat-icon *ngIf="snav.opened">close</mat-icon>
+            </button>
+            <h1 class="example-app-name">Conta Web</h1>
+      </mat-toolbar>
+      <mat-sidenav-container class="example-sidenav-container"  [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+          <mat-sidenav #snav>
+              <mat-nav-list>
+                  <button mat-button (click)="snav.toggle()" routerLink="/cliente" style="cursor:pointer">
+                    <mat-icon>people</mat-icon>
+                    <span>Clientes</span>
+                  </button>
+                  <mat-divider></mat-divider>
+                  <button mat-button (click)="snav.toggle()" routerLink="/declaracion" style="cursor:pointer">
+                      <mat-icon>attach_money</mat-icon>
+                      <span>Declaraciones</span>
+                    </button>
+                    <mat-divider></mat-divider>
+                    <button mat-button (click)="snav.toggle()" routerLink="/reporte" style="cursor:pointer">
+                        <mat-icon>bar_chart</mat-icon>
+                        <span>Reportes</span>
+                      </button>
+                      <mat-divider></mat-divider>
+              </mat-nav-list>
+          </mat-sidenav>
+          <mat-sidenav-content>
+            <router-outlet></router-outlet>
+          </mat-sidenav-content>
+      </mat-sidenav-container>
+     
+  </div>
+  
+
