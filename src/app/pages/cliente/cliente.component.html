@@ -37,7 +37,7 @@
     <mat-cell *matCellDef="let element">
       <button  mat-icon-button  color="primary" [routerLink]="['editar',element.idCliente]"><mat-icon>edit</mat-icon></button>
       <button  mat-icon-button color="accent" [routerLink]=""><mat-icon>attach_money</mat-icon></button>
-      <button  mat-icon-button  color="warn"><mat-icon>delete_sweep</mat-icon></button>
+      <button  mat-icon-button  color="warn" (click)="eliminar(element.idCliente)"><mat-icon>delete_sweep</mat-icon></button>
     </mat-cell>
 </ng-container>
   <!--<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

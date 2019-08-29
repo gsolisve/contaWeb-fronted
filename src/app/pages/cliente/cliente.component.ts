@@ -45,4 +45,12 @@ export class ClienteComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  eliminar(codigoCliente){
+    console.log(codigoCliente);
+    this.clienteService.deleteClienteByID(codigoCliente).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
+  }
 }

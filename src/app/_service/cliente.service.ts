@@ -47,4 +47,7 @@ export class ClienteService {
     return this.http.get<Cliente>(`${this.url}/listar/${idCliente}`);
   }
 
+  deleteClienteByID(idCliente: number){
+    return this.http.delete(`${this.url}/eliminar/${idCliente}`);
+  }
 }
