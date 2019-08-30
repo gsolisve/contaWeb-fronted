@@ -121,25 +121,37 @@ export class ClienteEdicionComponent implements OnInit {
     this.cliente.celularContacto = this.form.value['celularContacto'];
     this.cliente.correoContacto = this.form.value['correoContacto'];
     this.cliente.fechaDeclaracion = this.fechaDeclaracion;
+    console.log(this.cliente);
     if(this.cliente != null && this.idCliente>0){
       //Actualizar o modificar
       this.cliente.idCliente = this.idCliente;
+      
       this.clienteService.modificar(this.cliente).subscribe(data=>{
           if(data == 1){
+            this.clienteService.getListarClientes().subscribe(data =>{
+              this.clienteService.clienteCambio.next(data);
+              this.clienteService.mensaje.next("Se modificó exitosamente");
+            });
             console.log("Se modificó exitosamente");
           }else{
+            this.clienteService.mensaje.next("No se pudo modificar el cliente")
             console.log("Algo salio mal");
           }
       });
     }else{
       console.log(this.cliente);
-     /* this.clienteService.registrar(this.cliente).subscribe(data=>{
+      this.clienteService.registrar(this.cliente).subscribe(data=>{
         if(data === 1){
+          this.clienteService.getListarClientes().subscribe(data =>{
+            this.clienteService.clienteCambio.next(data);
+            this.clienteService.mensaje.next("Se registró exitosamente");
+          });
           console.log("Se registro exitosamente");
         }else{
+          this.clienteService.mensaje.next("No se pudo registar el cliente");
           console.log("Vaya algo salio mal :C");
         }
-      });*/
+      });
       console.log("ID:" + this.cliente.idCliente);
     }
   }
