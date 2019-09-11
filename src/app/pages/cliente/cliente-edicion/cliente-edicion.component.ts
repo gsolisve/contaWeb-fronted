@@ -148,6 +148,7 @@ export class ClienteEdicionComponent implements OnInit {
             this.clienteService.mensaje.next("Se registró exitosamente");
           });
           console.log("Se registro exitosamente");
+          this.router.navigate(['cliente']);
         }else{
           this.clienteService.mensaje.next("No se pudo registar el cliente");
           console.log("Vaya algo salio mal :C");

@@ -66,6 +66,7 @@ export class ClienteComponent implements OnInit {
             this.clienteService.getListarClientes().subscribe(data =>{
               this.clienteService.clienteCambio.next(data);
               this.clienteService.mensaje.next("Se elimino correctamente");
+           
             });
           }else{
              this.clienteService.mensaje.next("Error al eliminar  cliente");
