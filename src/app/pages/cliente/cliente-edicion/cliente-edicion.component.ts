@@ -131,11 +131,12 @@ export class ClienteEdicionComponent implements OnInit {
             this.clienteService.getListarClientes().subscribe(data =>{
               this.clienteService.clienteCambio.next(data);
               this.clienteService.mensaje.next("Se modificó exitosamente");
+              this.router.navigate(['cliente']);
             });
-            console.log("Se modificó exitosamente");
+            
           }else{
             this.clienteService.mensaje.next("No se pudo modificar el cliente")
-            console.log("Algo salio mal");
+           
           }
       });
     }else{

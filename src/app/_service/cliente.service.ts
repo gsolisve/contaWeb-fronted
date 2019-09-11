@@ -13,6 +13,7 @@ export class ClienteService {
   url : String = `${Host}/cliente`;
   clienteCambio = new Subject<Cliente[]>();
   mensaje = new Subject<string>();
+  ocultar = new Subject<string>();
   constructor(private http:HttpClient) { }
 
   registrar(cliente:Cliente){
