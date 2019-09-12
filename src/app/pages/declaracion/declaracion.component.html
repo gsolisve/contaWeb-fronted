@@ -1,3 +1,8 @@
-<p>
-  declaracion works!
-</p>
+<div class="example-container mat-elevation-z8">
+  <mat-form-field>
+    <input class="buscador" (keup)="applyFilter($event.target.value)" placeholder="Declaración">
+  </mat-form-field>
+  <mat-table [dataSource]="dataSource" matSort>
+      <mat-header-row *matHeaderRowRef="displayedColumns"></mat-header-row>
+  </mat-table>
+</div>
