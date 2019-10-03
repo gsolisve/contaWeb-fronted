@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cliente } from 'src/app/_model/cliente';
 import { ClienteService } from 'src/app/_service/cliente.service';
 import {MatTableDataSource, MatPaginator, MatSort, MatSnackBar} from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cliente',

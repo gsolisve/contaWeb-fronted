@@ -1,8 +1,68 @@
 <div class="example-container mat-elevation-z8">
   <mat-form-field>
-    <input class="buscador" (keup)="applyFilter($event.target.value)" placeholder="Declaración">
+    <input matInput class="buscador" (keup)="applyFilter($event.target.value)" placeholder="Declaración">
   </mat-form-field>
   <mat-table [dataSource]="dataSource" matSort>
-      <mat-header-row *matHeaderRowRef="displayedColumns"></mat-header-row>
-  </mat-table>
+
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+      <ng-container matColumnDef="cliente" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Clientes</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.cliente}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fechaDeclaracion" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de declaración</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.fechaDeclaracion}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="montoVentas" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Monto de ventas</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.montoVentas}}</mat-cell>
+      </ng-container> 
+      <ng-container matColumnDef="IGVVenta" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>IGV de ventas</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.igvVentas}}</mat-cell>
+      </ng-container> 
+      <ng-container matColumnDef="montoCompras" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Monto de compras</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.montoCompras}}</mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="IGVCompra" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>IGV de compras</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.igvCompras}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="IGVPagar" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>IGV a pagar</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.igvPagar}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="impuestoRenta" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Impuesto a la renta</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.impuestoRenta}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="impuestoRentaPagar" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Impuesto a la renta a pagar</mat-header-cell> 
+        <mat-cell *matCellDef="let row">{{row.impuestoRentaPagar}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="opciones" >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Opciones</mat-header-cell> 
+        <mat-cell *matCellDef="let element">
+          <button  mat-icon-button  color="primary" [routerLink]="['editar',element.idCliente]"><mat-icon>edit</mat-icon></button>
+          <button  mat-icon-button color="accent"routerLink=""><mat-icon>attach_money</mat-icon></button>
+          <button  mat-icon-button  color="warn" (click)="eliminar(element.idCliente)"><mat-icon>delete_sweep</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+    </mat-table>
+   <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,25,100]" [length]="cantidad"(page)="mostrarMas($event)"></mat-paginator>
 </div>
+
+<button mat-fab color="accent" style="float:right;margin-right:20px" routerLink="/cliente/nuevoCliente">
+  <mat-icon>create</mat-icon>
+</button>
+

@@ -9,9 +9,8 @@ import { ClienteEdicionComponent } from './pages/cliente/cliente-edicion/cliente
 const routes: Routes = [
   {path:'cliente',component:ClienteComponent, children:
   [{path:'nuevoCliente',component:ClienteEdicionComponent},{path:'editar/:id',component:ClienteEdicionComponent}]},
-  {path:'declaracion',component:DeclaracionComponent},
+  {path:'declaracion/cliente/:id',component:DeclaracionComponent},
   {path:'reporte',component:ReporteComponent}
-
  // {path:'',redirectTo:'/cliente',pathMatch:'full'},  {path:'**',component:PageNotFoundComponent},
 ];
 
