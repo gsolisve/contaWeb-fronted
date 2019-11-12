@@ -1,0 +1,45 @@
+<div class="">
+    <mat-card>Declaración</mat-card>
+    <form class="scroll-form" [formGroup]="form" (ngSubmit)="operar()" #declaracionForm="ngForm">
+      <mat-form-field class="example-full-width" hintLabel="Ejm: 10/10/2019">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha Declaración" formControlName="fechaDeclaracion">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field hintLabel="Ejm: 10/10/2019" class="example-full-width">
+        <input matInput type="number" formControlName="montoVentas" placeholder="Monto de ventas" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field hintLabel="Ejm: 2%" class="example-full-width">
+        <input matInput type="number" formControlName="igvVentas" placeholder="IGV de ventas" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" formContrloName="montoCompras" placeholder="Monto de compras" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" formControlName="igvCompras" placeholder="IGV de compras" autocomplete="off">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" formControlName="igvPagar" placeholder="IGV a pagar" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" formControlName = "impuestoRenta" placeholder="Impuesto a la renta" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" formControlName = "impuestoRentaPagar" placeholder="Impuesto a la renta a pagar" autocomplete="off">
+      </mat-form-field>
+
+        <div class="example-full-width">
+          <input type="file" id="file" (click)="selectFile($event)" />
+        </div>
+        
+      <div>
+        <button mat-raised-button color="primary" type="submit" >Aceptar</button>
+        <button  mat-raised-button color="accent" (click) = "cancelar()"  type="button">Cancelar</button>
+      </div>
+    </form>
+</div>

@@ -14,6 +14,6 @@ export class Declaracion{
     impuestoRentaPagar  : Number;
     listaArchivos   : Array<Archivo>;
     estado  : boolean;
-
+    
 
 }

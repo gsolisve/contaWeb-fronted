@@ -13,6 +13,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { ClienteEdicionComponent } from './pages/cliente/cliente-edicion/cliente-edicion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {FormsModule} from '@angular/forms';
+import { DeclaracionEdicionComponent } from './pages/declaracion/declaracion-edicion/declaracion-edicion/declaracion-edicion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import {FormsModule} from '@angular/forms';
     PageNotFoundComponent,
     DeclaracionComponent,
     ReporteComponent,
-    ClienteEdicionComponent
+    ClienteEdicionComponent,
+    DeclaracionEdicionComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,9 @@ import {FormsModule} from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
+  ],
+  entryComponents:[
+    DeclaracionEdicionComponent
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]
